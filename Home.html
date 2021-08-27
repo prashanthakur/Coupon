@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>EduMeto</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .coupon_offer{
+                height:300px;
+                width:40%;
+                background-color:#fff;
+                margin-top: -75%;
+                margin-left: 30%;
+                
+            }
+            .coupon{
+                border:2px dotted rgb(199, 181, 181);
+                height:300px;
+            }
+            .alert{
+                display: none;
+            }
+            .purchase > b{
+                color:blue;
+            }
+            .code{
+                color:red;
+            }
+        </style>
+        <link href="Homepage.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body onload="getoffer()">
+        <div class="alert alert-success">
+            <strong>Success!</strong> Indicates a successful or positive action.
+          </div>
+        <div id="main" class="conatainer-fluid">
+            <!--Search-->
+            <div id="search">
+                <div id="login">
+                    <br/><br/>
+                    <a href="https://facebook.com/">
+                        Login
+                    </a>&nbsp;
+                    <a href="https://youtube.com/">
+                      Create an Account
+                    </a>
+                </div>
+
+                <div id="logo">
+                    <span>e!</span>
+                </div>
+                <div id="heading">
+                    Find The Best Reståurânts, Cafés and bärs  
+                </div>
+                <div id="dropdown">
+                    <select>
+                        <option>---SELECT LOCATION---</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Chandigarh</option>
+                    </select>
+                    <select id="restaurants">
+                        <option>---SELECT Reståurânts---</option>
+                        <option>Wow Momos</option>
+                        <option>Pizza Hut</option>
+                    </select>
+                </div>
+            </div>
+            <!--QuickSearch-->
+            <div id="quicksearch">
+                <span id="QuickHeading">
+                    Quick Searches
+                </span>
+                <span id="QuickSubHeading">
+                    Discover reståurânts by type of meal
+                </span>
+                <div id="mainTileContainer">
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="breakfast"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                Breakfast
+                            </div>
+                            <div class="componentSubHeading">
+                                Start Your Day with Best Offers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="dinner"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                Dinner
+                            </div>
+                            <div class="componentSubHeading">
+                                End Your Day with Best Offers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="drinks"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                Drinks
+                            </div>
+                            <div class="componentSubHeading">
+                                Party Hard with our best offers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="nightlife"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                NightLife
+                            </div>
+                            <div class="componentSubHeading">
+                                Party Hard with our best offers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="lunch"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                Lunch
+                            </div>
+                            <div class="componentSubHeading">
+                                Have Lunch with our best offers
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tileContainer">
+                        <div class="tileComponent1">
+                            <img src="food.jpg" alt="snacks"/>
+                        </div>
+                        <div class="tileComponent2">
+                            <div class="componentHeading">
+                                Snacks
+                            </div>
+                            <div class="componentSubHeading">
+                                Mumching with our best offers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="coupon_offer" id="closing">
+            <div class="coupon">
+                <img src="offer.jpg" alt="Avatar" style="width:100%; height:140px;">
+                <div class="container">
+                  <span id="purchase"><b>20% OFF YOUR PURCHASE</b></span> 
+                </div>
+                <div class="container">
+                  <p id="code">Use Promo Code: <span class="promo">BOH232</span></p>
+                  <p class="expire">Expires: Jan 03, 2021</p>
+                </div>
+                <button type="button" class="btn btn-success" onclick="getoffer()">Apply Coupon</button>
+                <button type="button" class="btn btn-danger" onclick="closeoffer()">Close</button>
+                <label>Enter coupon</label>
+                <input type="text" id="answer"/>
+                <p id="output"></p>
+                </div>
+            </div>
+        </div>
+        <!--SCRIPT STARTS-->
+        <script>
+                function closeoffer(){
+                    document.getElementById('closing').style.display="none";
+                }
+                function getoffer(){
+                    var ans = document.getElementById('answer').value;
+                    var promocode = "BOH232";
+                    if (ans == promocode){
+                        document.getElementById('QuickHeading').innerText="CONGRATULATIONS ! You Get 20% OFF Today.";
+                        document.getElementById('QuickHeading').style="color:green";
+                        document.getElementById('purchase').innerText="COUPON APPLIED SUCCESSfuLly";
+                        document.getElementById('code').style.display="none";
+                        document.getElementById('output').innerText="CONGRATULATIONS ! You Get 20% OFF Today.";
+                        document.getElementById('expire').style.color="green";
+                        document.getElementById('expire').style="font-size:30px";
+                        document.getElementById('expire').style.backgroundColor="aqua";
+                    }
+                    else{
+                        document.getElementById('output').innerText="";
+                    }
+                }
+        </script>
+    </body>
+</html>
